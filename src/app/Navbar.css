@@ -381,8 +381,8 @@
   position: absolute;
   bottom: -390px;
   left: -225px;
-  width: 500px;
-  height: 390px;
+  width: 450px;
+  height: 395px;
   background-color: white;
   z-index: 2;
   border: solid 1px black;
@@ -392,11 +392,18 @@
   flex-direction: column;
   align-items: center ;
   font-size: 13px;
+  border-radius: 3px;
+  /* display: none; */
 }
 
 .header .header-upper .header-tools .header-signin .header-signin-dropdown a {
   text-decoration: none;
   color: #000;
+}
+
+.header .header-upper .header-tools .header-signin .header-signin-dropdown a:hover {
+  text-decoration: underline;
+  color: orange;
 }
 
 .header-flexcolumn {
@@ -409,7 +416,7 @@
   position: absolute;
   bottom: 100%;
   /* At the top of the tooltip */
-  left: 50%;
+  left: 78.2%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
@@ -419,19 +426,63 @@
 .header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-top {
   justify-content: space-around;
   align-items: center;
-  height: 60px;
+  height: 80px;
 }
 
 .header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-top button {
-width: 150px;
+width: 160px;
+height: 35px;
+border: solid 1.5px orange;
+border-radius: 2px;
+font-size: 15px;
+background-image: linear-gradient(to top, rgb(238, 176, 62), rgb(245, 226, 190));
+margin-top: 15px;
+}
+
+.header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-top button:hover {
+  background-image: linear-gradient(to top, rgb(240, 174, 51), rgb(240, 211, 157));
+}
+
+.header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-top span {
+  font-size: 11px;
+}
+
+.header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-top a {
+color: rgb(55, 55, 245);
+}
+
+.header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-top a:hover {
+text-decoration: underline;
+color: orange;}
+
+.header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-top::after {
+  content: "";
+  height: 1px;
+  width: 450px;
+  background-color: rgb(177, 171, 171);
 }
 
 .header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-bot {
   flex-direction: row;
   justify-content: space-around;
-  color: red;
   width: 100%;
-  line-height: 20px;
+  line-height: 25px;
+  margin-top: 6px;
+}
+
+.header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-bot .header-signin-bot-list::after {
+  content: "";
+  height: 290px;
+  width: 1px;
+  background-color: gray;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+}
+
+.header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-bot .header-signin-bot-bold {
+font-weight: 600;
+font-size: 14px;
 }
 
 .header .header-upper .header-tools .header-return {

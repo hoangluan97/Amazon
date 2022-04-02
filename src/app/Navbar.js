@@ -132,15 +132,13 @@ function Navbar() {
               </div>
               <div className="header-signin-bot header-flexcolumn">
                 <div className="header-signin-bot-list header-flexcolumn">
-                  <span className="header-signin-bot-yourlist">Your List</span>
+                  <span className="header-signin-bot-bold">Your List</span>
                   <a href="">Create your list</a>
                   <a href="">Find a list or Registry</a>
                   <a href="">AmazonSmile Charity List</a>
                 </div>
                 <div className="header-signin-bot-account header-flexcolumn">
-                  <span className="header-signin-bot-yourlist">
-                    Your Account
-                  </span>
+                  <span className="header-signin-bot-bold">Your Account</span>
                   <a href="">Account</a>
                   <a href="">Order</a>
                   <a href="">Recommendation</a>
