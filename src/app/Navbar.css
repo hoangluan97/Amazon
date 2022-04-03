@@ -12,6 +12,7 @@
   justify-content: flex-start;
   align-items: center; */
   width: 100vw;
+  flex-direction: column;
 }
 
 .header-sprite {
@@ -26,17 +27,18 @@
   background-color: black;
   justify-content: flex-start;
   align-items: center;
+  padding-left: 5px;
 }
 
 .header .header-upper .header-logo-wrap {
   width: 110px;
-  height: 90%;
+  height: 80%;
   margin-left: 2px;
 }
 
 .header .header-upper .header--logo {
   width: 110px;
-  height: 48px;
+  height: 42px;
   background-position: -5px -97px;
   background-size: 425px;
   background-repeat: no-repeat;
@@ -45,7 +47,7 @@
 }
 
 .header .header-upper .header-logo-wrap:hover {
-  border: solid 1px white;
+  box-shadow: 0 0 0 1px white;
   border-radius: 3px;
 }
 
@@ -64,7 +66,7 @@
 }
 
 .header .header-upper .header-location-container:hover {
-  border: solid 1px white;
+  box-shadow: 0 0 0 1px white;
   border-radius: 3px;
 }
 
@@ -285,6 +287,7 @@
   background-color: orange;
   border: none;
   border-radius: 0 3px 3px 0;
+  cursor:pointer;
 }
 
 .header
@@ -352,7 +355,7 @@
 }
 
 .header .header-upper .header-tools .header-signin:hover {
-  border: solid 1px white;
+  box-shadow: 0 0 0 1px white;
   border-radius: 2px;
 }
 
@@ -430,13 +433,14 @@
 }
 
 .header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-top button {
-width: 160px;
-height: 35px;
-border: solid 1.5px orange;
-border-radius: 2px;
-font-size: 15px;
-background-image: linear-gradient(to top, rgb(238, 176, 62), rgb(245, 226, 190));
-margin-top: 15px;
+  width: 160px;
+  height: 35px;
+  border: solid 1.5px orange;
+  border-radius: 2px;
+  font-size: 15px;
+  background-image: linear-gradient(to top, rgb(238, 176, 62), rgb(245, 226, 190));
+  margin-top: 15px;
+  cursor:pointer;
 }
 
 .header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-top button:hover {
@@ -453,12 +457,13 @@ color: rgb(55, 55, 245);
 
 .header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-top a:hover {
 text-decoration: underline;
-color: orange;}
+color: orange;
+}
 
 .header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-top::after {
   content: "";
-  height: 1px;
-  width: 450px;
+  height: 0.5px;
+  width: 430px;
   background-color: rgb(177, 171, 171);
 }
 
@@ -473,7 +478,7 @@ color: orange;}
 .header .header-upper .header-tools .header-signin .header-signin-dropdown .header-signin-bot .header-signin-bot-list::after {
   content: "";
   height: 290px;
-  width: 1px;
+  width: 0.5px;
   background-color: gray;
   position: absolute;
   left: 50%;
@@ -541,3 +546,52 @@ font-size: 14px;
   font-size: 18px;
   font-weight: 550;
 }
+
+.header .header-nav {
+  display: flex;
+  flex-direction: row;
+  height: 35px;
+  width: 100%;
+  background-color: rgb(34, 34, 63);
+  color: whitesmoke;
+  margin: auto;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.header .header-nav .header-nav-all {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  align-items: center;
+  height: 25px;
+  padding: 5px 9px;
+}
+
+.header .header-nav .header-nav-all:hover {
+  box-shadow: 0 0 0 1px white;
+  border-radius: 2px;
+}
+
+.header .header-nav .header-nav-all .header-nav-bar {
+  background-position: -170px -254px;
+  background-size: 350px;
+  width: 24px;
+  height: 16px;
+    /* box-shadow: 0 0 0 1px white; */
+}
+
+.header .header-nav a {
+  color: whitesmoke;
+  text-decoration: none;
+  margin: auto 5px;
+  font-size: 14px;
+  padding: 5px 9px;
+}
+
+.header .header-nav a:hover {
+  box-shadow: 0 0 0 1px white;
+  border-radius: 2px;
+}
+
+

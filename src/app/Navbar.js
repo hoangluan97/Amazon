@@ -177,6 +177,19 @@ function Navbar() {
           </div>
         </div>
       </div>
+      <div className="header-nav">
+        <div className="header-nav-all">
+          <i className="header-sprite header-nav-bar"></i>
+          <span>All</span>
+        </div>
+        <div className="header-nav-link">
+          <a href="">Today's Deals</a>
+          <a href="">Customer Service</a>
+          <a href="">Registry</a>
+          <a href="">Gift Cards</a>
+          <a href="">Sell</a>
+        </div>
+      </div>
     </div>
   );
 }
