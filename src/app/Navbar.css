@@ -4,7 +4,6 @@
 }
 .header {
   display: flex;
-  /* overflow: hidden; */
   /* flex-direction: row;
   height: 60px;
   width: 100%;
@@ -13,6 +12,7 @@
   align-items: center; */
   width: 100vw;
   flex-direction: column;
+  min-width: 0px;
 }
 
 .header-sprite {
@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: row;
   height: 65px;
-  width: 100%;
+  width: 100vw;
   background-color: black;
   justify-content: flex-start;
   align-items: center;
@@ -31,19 +31,20 @@
 }
 
 .header .header-upper .header-logo-wrap {
+  display: flex;
   width: 110px;
   height: 80%;
   margin-left: 2px;
 }
 
-.header .header-upper .header--logo {
+.header .header-upper .header-logo-wrap .header-logo {
   width: 110px;
   height: 42px;
   background-position: -5px -97px;
   background-size: 425px;
-  background-repeat: no-repeat;
   /* border: solid 1px white; */
-  margin-top: 2px;
+  /* margin-top: 2px; */
+  
 }
 
 .header .header-upper .header-logo-wrap:hover {
@@ -79,6 +80,10 @@
   height: 52px;
   color: white;
   max-width: 165px;
+}
+
+.header .header-upper .header-location-container .header-location .header-location-icon {
+  display: flex;
 }
 
 .header
@@ -288,6 +293,7 @@
   border: none;
   border-radius: 0 3px 3px 0;
   cursor:pointer;
+  display: flex;
 }
 
 .header
@@ -359,6 +365,10 @@
   border-radius: 2px;
 }
 
+.header .header-upper .header-tools .header-signin:hover .header-signin-dropdown {
+    display: block;
+}
+
 .header .header-upper .header-tools .header-signin .header-signin-line2 {
   width: fit-content;
 }
@@ -396,7 +406,7 @@
   align-items: center ;
   font-size: 13px;
   border-radius: 3px;
-  /* display: none; */
+  display: none;
 }
 
 .header .header-upper .header-tools .header-signin .header-signin-dropdown a {
@@ -521,11 +531,11 @@ font-size: 14px;
   /* border: solid 1px white; */
 }
 
-.header
+/* .header
   .header-upper
   .header-tools
   .header-bracket-container
-  .header-counter
+  .header-counter */
   .header-bracket-icon {
   width: 42px;
   height: 28px;
@@ -557,6 +567,8 @@ font-size: 14px;
   margin: auto;
   align-items: center;
   padding-left: 8px;
+  overflow: hidden;
+    white-space: nowrap;
 }
 
 .header .header-nav .header-nav-all {
@@ -581,12 +593,18 @@ font-size: 14px;
     /* box-shadow: 0 0 0 1px white; */
 }
 
+.header .header-nav .header-nav-link {
+  display: flex;
+  flex-direction: row;
+}
+
 .header .header-nav a {
   color: whitesmoke;
   text-decoration: none;
   margin: auto 5px;
   font-size: 14px;
   padding: 5px 9px;
+  white-space: nowrap;
 }
 
 .header .header-nav a:hover {

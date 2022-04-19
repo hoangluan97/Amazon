@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+.Home {
+    min-width: 980px;
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 100vw;
+    height: 600px;
+    position: relative;
+}
+
+.Background-slider {
+    z-index: -1;
+}
+
+img {
+    width: 100%;
+    z-index: -1;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;    
+    position: absolute;
+    right: 100%;
+    top: 0;
+    animation: 16s autoplay2 infinite ease-in-out;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.firstImg {
+    right:0%;
+    animation: 16s autoplay1 0s 1 ease-in-out, 
+    16s autoplay2 16s infinite ease-in-out;
+}
+
+@keyframes autoplay1 {
+    0% {
+        right: 0%
+    }
+
+    25% {
+        right: 0%
+    }
+
+    29% {
+        right: -100%
+    }
+
+    100% {
+        right: -100%
+    }
+}
+
+@keyframes autoplay2 {
+    0% {
+        right: 100%
+    }
+
+    4% {
+        right: 0%
+    }
+
+    25% {
+        right: 0%
+    }
+
+    29% {
+        right: -100%
+    }
+
+    100% {
+        right: -100%
+    }
+}
+
+/* .Background-image> *:nth-child(1) {
+    animation-delay: 0s
+}
+
+.Background-image> *:nth-child(2) {
+    animation-delay: 4s
+}
+
+.Background-image> *:nth-child(3) {
+    animation-delay: 8s
+}
+
+.Background-image>*:nth-child(4) {
+    animation-delay: 12s
+} */
+
+.Home-Flexcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Background-button {
+    display: flex;
+    width: 80px;
+    height: 250px;
+    position: absolute;
+    top: 2px;    
+    background-color: transparent;
+}
+
+.Background-button:active {
+    cursor: pointer;
+    border-style: double;
+    border: solid 3px white;
+    outline: solid 3px green;
+    border-radius: 3px;
+}
+
+.Button-left {
+    left: 2px;
+}
+
+.Button-right {
+    right: 2px;
+}
+

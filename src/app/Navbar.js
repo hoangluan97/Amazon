@@ -6,18 +6,12 @@ function Navbar() {
     <div className="header">
       <div className="header-upper">
         <div className="header-logo-wrap">
-          <img
-            src="https://www.w3schools.com/css/img_trans.gif"
-            className="header--logo header-sprite"
-          />
+          <i className="header-sprite header-logo"></i>
         </div>
         <div className="header-location-container">
           <div className="header-location">
             <div className="header-location-icon">
-              <img
-                src="https://www.w3schools.com/css/img_trans.gif"
-                className="header-location-dot header-sprite"
-              />
+              <i className="header-location-dot header-sprite"></i>
             </div>
             <div className="header-location-line">
               <span className="header-location-line-1">Hello</span>
@@ -43,15 +37,9 @@ function Navbar() {
                 <option>Amazon Warehouse</option>
                 <option>Appliances</option>
                 <option>Apps &amp; Games</option>
-                <option value="search-alias=arts-crafts">
-                  Arts, Crafts &amp; Sewing
-                </option>
-                <option value="search-alias=audible">
-                  Audible Books &amp; Originals
-                </option>
-                <option value="search-alias=automotive">
-                  Automotive Parts &amp; Accessories
-                </option>
+                <option>Arts, Crafts &amp; Sewing</option>
+                <option>Audible Books &amp; Originals</option>
+                <option>Automotive Parts &amp; Accessories</option>
                 <option>AWS Courses</option>
                 <option>Baby</option>
                 <option>Beauty &amp; Personal Care</option>
@@ -105,10 +93,10 @@ function Navbar() {
             </div>
             <div className="header-search-submit">
               <button className="header-search-button">
-                <img
+                <i
                   src="https://www.w3schools.com/css/img_trans.gif"
                   className="header-search-icon header-sprite"
-                />
+                ></i>
               </button>
             </div>
           </form>
