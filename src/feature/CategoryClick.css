@@ -1,0 +1,43 @@
+.displayflex {
+    display: flex;
+    flex-direction: column;
+}
+
+.Home-categoryclick {
+    height: 420px;
+    width: 100%;
+        justify-content: space-around;
+        padding: 10px;
+        background-color: white;
+}
+
+.Home-categoryclick-header {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.Home-categoryclick-product {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.Home-categoryclick-productprice span {
+    font-weight: bold;
+}
+
+.Home-categoryclick-productcontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Home-categoryclick-changeproduct {
+    width: 24%;
+    border: solid 1px rgb(101, 99, 99);
+    border-radius: 2px;
+}
+
+.Home-categoryclick-productcontainer img {
+ object-fit: contain;
+ width: 100%;   
+}

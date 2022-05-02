@@ -1,30 +1,9 @@
 import React, { useState } from "react";
 import "./Home.css";
-import Products from "./Products";
+import Categories from "./Categories";
 
 function Home() {
   const [delaySlider, setdelaySlider] = useState(0);
-
-  // let SlidingLeft = keyframes`
-  // 0% {
-  //       left: 100%
-  //   }
-
-  //   4% {
-  //       left: 0%
-  //   }
-
-  //   33.33% {
-  //       left: 0%
-  //   }
-
-  //   37.33% {
-  //       left: -100%
-  //   }
-
-  //   100% {
-  //       left: -100%
-  //   }`;
 
   const handleClickLeftButton = () => {
     setdelaySlider(delaySlider - 3);
@@ -78,7 +57,7 @@ function Home() {
           <i className="fa-solid fa-angles-right fa-2xl"></i>
         </button>
       </div>
-      <Products />
+      <Categories />
     </div>
   );
 }

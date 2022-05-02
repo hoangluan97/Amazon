@@ -29,7 +29,9 @@ function Navbar() {
                 <i className="header-dot"></i>
               </div>
               <select className="header-search-list">
-                <option selected="selected">All Departments</option>
+                <option value="value" selected>
+                  All Departments
+                </option>
                 <option>Alexa Skills</option>
                 <option>Amazon Devices</option>
                 <option>Amazon Explore</option>

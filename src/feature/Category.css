@@ -1,0 +1,32 @@
+.Home-Category {
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: white;
+    padding: 10px;
+}
+
+.Home-Category-Header {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.Home-Category-Img {
+    width: 100%;
+    height: auto;
+}
+
+.Home-Category-Img img {
+    object-fit: cover;
+    width: 100%;
+}
+
+.Home-Category-Footer a {
+    text-decoration: none;
+    color: #007185;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
