@@ -1,7 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import "./CategoryHorizontal.css";
+import { Link } from "react-router-dom";
+import { data } from "../api/apiSlice";
 
-function CategoryHorizontal({ imgSrc }) {
+function CategoryHorizontal({ index }) {
   const scrollref = useRef(null);
   const buttonleft = useRef(null);
   const buttonright = useRef(null);
@@ -29,39 +31,17 @@ function CategoryHorizontal({ imgSrc }) {
     scrollref.current.scrollLeft += distance;
   };
 
+  const content = data[index].category_results.map((product) => (
+    <img key={product.position} src={product.image} alt="" />
+  ));
+
   return (
     <div className="Home-categoryhorizontal">
       <div className="Home-categoryhorizontal-container">
         <div className="Home-categoryhorizontal-header">Books for you</div>
         <div className="Home-categoryhorizontal-scrollcontainer">
           <div className="Home-categoryhorizontal-imgcontainer" ref={scrollref}>
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
-            <img src={imgSrc} alt="" />
+            {content}
             <button ref={buttonleft} onClick={() => scroll(2400)}>
               <i className="fa-solid fa-angle-right fa-2xl"></i>
             </button>

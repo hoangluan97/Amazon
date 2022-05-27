@@ -1,40 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useCallback } from "react";
 import "./Category.css";
-// import { useGetProductsQuery } from "../api/apiSlice";
-import { Axios } from "axios";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAllProducts, productsLoad } from "./productsSlice";
+import { useParams } from "react-router-dom";
+import { data } from "../api/apiSlice";
 
-function Category({ title, imgSrc }) {
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       "https://api.rainforestapi.com/request?api_key=AFCE728547BB4C1589EA21B8D13E10B9&type=Category&amazon_domain=amazon.com&asin=B073JYC4XM"
-  //     )
-  //     .then((res) => {
-  //       const rs = res.data;
-  //       console.log(rs);
-  //     });
-  // });
-  // const {
-  //   data: products = [],
-  //   isLoading,
-  //   isFetching,
-  //   isSuccess,
-  //   isError,
-  //   error,
-  // } = useGetPostsQuery();
-
+function Testinng({ index }) {
+  const param = useParams().ProductPageid;
+  const dispatch = useDispatch();
+  // const handleClick = useCallback((param) => {
+  //   return () => dispatch(productsLoad({ param }));
+  // }, []);
   return (
     <div className="Home-Category">
-      <div className="Home-Category-Header">{title}</div>
-      <div className="Home-Category-Img">
-        <img src={imgSrc} alt="" />
+      <div className="Home-Category-Header">
+        {data[index].category_results[0].categories[0].name}
       </div>
-      <div className="Home-Category-Footer">
-        <a href="">Shop now</a>
+      <div className="Home-Category-Img">
+        <img src={data[index].category_results[0].image} alt="" />
+      </div>
+      <div
+        className="Home-Category-Footer"
+        onClick={() => dispatch(productsLoad({ index }))}
+      >
+        <Link to={`/${index}`}>Shop now</Link>
       </div>
     </div>
   );
 }
 
-export default Category;
+export default Testinng;

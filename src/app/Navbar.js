@@ -1,13 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { data } from "../api/apiSlice";
+import { productsSearch, categorySearch } from "../feature/productsSlice";
+import { useParams } from "react-router-dom";
 
 function Navbar() {
+  const [categoriesSearch, setCategoriesSearch] = useState("All");
+  const param = useSelector((state) => state.products.param);
+  const dispatch = useDispatch();
+  const cartQuantities = useSelector((state) => state.products.cartQuantities);
+  const [searchInput, setSearchInput] = useState("");
+  const Departments = ["All"];
+  for (let i = 0; i < data.length; i++) {
+    Departments.push(data[i].category_results[0].categories[0].name);
+  }
+  const optionContent = Departments.map((department, index) => (
+    <option key={index} data-key={index} value={department}>
+      {department}
+    </option>
+  ));
+
   return (
     <div className="header">
       <div className="header-upper">
-        <div className="header-logo-wrap">
-          <i className="header-sprite header-logo"></i>
-        </div>
+        <Link to="/Home">
+          <div className="header-logo-wrap">
+            <i className="header-sprite header-logo"></i>
+          </div>
+        </Link>
         <div className="header-location-container">
           <div className="header-location">
             <div className="header-location-icon">
@@ -25,81 +47,48 @@ function Navbar() {
           <form action="" className="header-search-form">
             <div className="header-search-categories">
               <div className="header-search-facade">
-                <span className="header-search-label">All</span>
+                <span className="header-search-label">{categoriesSearch}</span>
                 <i className="header-dot"></i>
               </div>
-              <select className="header-search-list">
-                <option value="value" selected>
-                  All Departments
-                </option>
-                <option>Alexa Skills</option>
-                <option>Amazon Devices</option>
-                <option>Amazon Explore</option>
-                <option>Amazon Pharmacy</option>
-                <option>Amazon Warehouse</option>
-                <option>Appliances</option>
-                <option>Apps &amp; Games</option>
-                <option>Arts, Crafts &amp; Sewing</option>
-                <option>Audible Books &amp; Originals</option>
-                <option>Automotive Parts &amp; Accessories</option>
-                <option>AWS Courses</option>
-                <option>Baby</option>
-                <option>Beauty &amp; Personal Care</option>
-                <option>Books</option>
-                <option>CDs &amp; Vinyl</option>
-                <option>Cell Phones &amp; Accessories</option>
-                <option>Clothing, Shoes &amp; Jewelry</option>
-                <option>&nbsp;&nbsp;&nbsp;Women</option>
-                <option>&nbsp;&nbsp;&nbsp;Men</option>
-                <option>&nbsp;&nbsp;&nbsp;Girls</option>
-                <option>&nbsp;&nbsp;&nbsp;Boys</option>
-                <option>&nbsp;&nbsp;&nbsp;Baby</option>
-                <option>Collectibles &amp; Fine Art</option>
-                <option>Computers</option>
-                <option>Credit and Payment Cards</option>
-                <option>Digital Educational Resources</option>
-                <option>Digital Music</option>
-                <option>Electronics</option>
-                <option>Garden &amp; Outdoor</option>
-                <option>Gift Cards</option>
-                <option>Grocery &amp; Gourmet Food</option>
-                <option>Handmade</option>
-                <option>Health, Household &amp; Baby Care</option>
-                <option>Home &amp; Business Services</option>
-                <option>Home &amp; Kitchen</option>
-                <option>Industrial &amp; Scientific</option>
-                <option>Just for Prime</option>
-                <option>Kindle Store</option>
-                <option>Luggage &amp; Travel Gear</option>
-                <option>Luxury Stores</option>
-                <option>Magazine Subscriptions</option>
-                <option>Movies &amp; TV</option>
-                <option>Musical Instruments</option>
-                <option>Office Products</option>
-                <option>Pet Supplies</option>
-                <option>Premium Beauty</option>
-                <option>Prime Video</option>
-                <option>Smart Home</option>
-                <option>Software</option>
-                <option>Sports &amp; Outdoors</option>
-                <option>Subscribe &amp; Save</option>
-                <option>Subscription Boxes</option>
-                <option>Tools &amp; Home Improvement</option>
-                <option>Toys &amp; Games</option>
-                <option>Under $10</option>
-                <option>Video Games</option>
+              <select
+                className="header-search-list"
+                onChange={(e) => {
+                  setCategoriesSearch(e.target.value);
+                  const selectedIndex = e.target.options.selectedIndex;
+                  const index =
+                    e.target.options[selectedIndex].getAttribute("data-key");
+                  dispatch(categorySearch({ index }));
+                }}
+              >
+                {optionContent}
               </select>
             </div>
             <div className="header-search-input">
-              <input type="text" id="header-search-textbox" />
+              <input
+                type="text"
+                id="header-search-textbox"
+                value={searchInput}
+                onChange={(e) => {
+                  setSearchInput(e.target.value);
+                }}
+              />
             </div>
             <div className="header-search-submit">
-              <button className="header-search-button">
-                <i
-                  src="https://www.w3schools.com/css/img_trans.gif"
-                  className="header-search-icon header-sprite"
-                ></i>
-              </button>
+              <Link to={`/${param}`}>
+                <button
+                  className="header-search-button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    dispatch(productsSearch({ searchInput }));
+                    setSearchInput("");
+                  }}
+                >
+                  <i
+                    src="https://www.w3schools.com/css/img_trans.gif"
+                    className="header-search-icon header-sprite"
+                  ></i>
+                </button>
+              </Link>
             </div>
           </form>
         </div>
@@ -139,11 +128,8 @@ function Navbar() {
                   <a href="">Content &amp; Devices</a>
                   <a href="">Subcribes and Save items</a>
                   <a href="">Menberships &amp; Subcriptions</a>
-                  {/* <a href="">Prime Membership</a>
-                  <a href="">Amazon credit cards</a> */}
+
                   <a href="">Music library</a>
-                  {/* <a href="">Start a selling account</a>
-                  <a href="">Register for a Bussiness Account</a> */}
                 </div>
               </div>
             </div>
@@ -156,15 +142,15 @@ function Navbar() {
               </span>
             </div>
           </div>
-          <div className="header-bracket-container header-tool">
+          <Link to="/Cart" className="header-bracket-container header-tool">
             <div className="header-counter">
-              <span className="header-counter-number">0</span>
+              <span className="header-counter-number">{cartQuantities}</span>
               <span className="header-sprite header-bracket-icon"></span>
             </div>
             <div className="header-text-container">
               <span className="header-bracket-text">Cart</span>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
       <div className="header-nav">

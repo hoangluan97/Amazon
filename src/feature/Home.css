@@ -7,12 +7,12 @@
     /* overflow: hidden;
     overflow-y: scroll; */
     width: 100vw;
-    height: auto;
+    height: fit-content;
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-            position: relative;
+    position: relative;
 }
 
 .Background-slider {

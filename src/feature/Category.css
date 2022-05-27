@@ -6,6 +6,10 @@
     align-items: flex-start;
     background-color: white;
     padding: 10px;
+    min-width: 320px;
+    width: 100%;
+    padding-left: auto;
+    padding-right: auto;
 }
 
 .Home-Category-Header {
@@ -14,13 +18,18 @@
 }
 
 .Home-Category-Img {
+    height: 65%;
     width: 100%;
-    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .Home-Category-Img img {
     object-fit: cover;
-    width: 100%;
+    /* height: auto; */
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .Home-Category-Footer a {

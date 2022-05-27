@@ -1,0 +1,25 @@
+.ProductPage {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.ProductPage-leftside {
+    width: 15%;
+    flex-shrink: 0;
+    /* border: solid 1px red; */
+    min-width: 249px;
+    max-width: 374px;
+}
+
+.ProductPage-rightside {
+        /* border: solid 1px red; */
+    padding: 10px;
+    display: inline-grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 10px;
+    width: 85%;
+    flex-shrink: 1;
+    justify-items: center;
+}
+

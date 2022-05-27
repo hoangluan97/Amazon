@@ -1,0 +1,91 @@
+.ProductCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: rgb(204, 166, 116); */
+    /* width: 300px; */
+    border: solid 1px rgb(228, 227, 227);
+    border-radius: 2px;
+    max-width: 320px;
+    padding: 5px;
+    width: 100%;
+}
+
+.ProductCard-image {
+    width: auto;
+    height: 40%;
+    /* display: block; */
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    max-width: 100%;
+}
+
+.ProductCard-name {
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    line-height: 24px !important;
+    max-height: 129.6px;
+    font-weight: 500;
+    color: #0F1111; 
+    margin-bottom: 0;
+    height: 45px;
+    margin-bottom: 10px;
+}
+
+.ProductCard-rating {
+    background: url(https://m.media-amazon.com/images/S/sash/3-fm1Jbg4IHlyhq.png);
+    height: 18px;
+    width: 84px;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+.ProductCard-price {
+    font-weight: bold;
+        margin-bottom: 12px;   
+}
+
+.ProductCard-button {
+    background-color: white;
+    border: solid 1px rgb(229, 229, 28);
+    color: rgb(132, 132, 13);
+    border-radius: 2px;
+}
+
+.ProductCard .Onestar {
+    background-position: -373px -145px;
+}
+
+.ProductCard .Twostar {
+    background-position: -179px -77px;
+}
+
+.Onehalfstar {
+    background-position: -388px -165px;
+}
+
+.ProductCard .Twohalfstar {
+    background-position: -97px -69px;
+}
+
+.ProductCard .Threestar {
+    background-position: -83px -48px;
+}
+
+.ProductCard .Threehalfstar {
+    background-position: -180px -57px;
+}
+
+.ProductCard .Fourstar {
+    background-position: -83px -7px;
+}
+
+.ProductCard .Fourhalfstar {
+    background-position: -83px -28px;
+}
+
+.ProductCard .Fivestar {
+    background-position: -165px -35px;
+}
