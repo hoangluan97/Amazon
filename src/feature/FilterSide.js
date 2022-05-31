@@ -3,7 +3,6 @@ import "./FilterSide.css";
 import { Link } from "react-router-dom";
 import { starFilter, productsLoad, priceFilter } from "./productsSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAllProducts } from "./productsSlice";
 import { useParams } from "react-router-dom";
 import { data } from "../api/apiSlice";
 
@@ -21,7 +20,7 @@ function FilterSide() {
 
   const content = departments.map((department, index) => (
     <li key={index} onClick={handleCategoryClick(index)}>
-      <Link to={`/${index}`}>{department}</Link>
+      <Link to={`/Amazon/${index}`}>{department}</Link>
     </li>
   ));
 

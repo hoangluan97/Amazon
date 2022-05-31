@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import "./ProductPage.css";
 import ProductCard from "./ProductCard";
 import FilterSide from "./FilterSide";

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { data } from "../api/apiSlice";
 import { productsSearch, categorySearch } from "../feature/productsSlice";
-import { useParams } from "react-router-dom";
 
 function Navbar() {
   const [categoriesSearch, setCategoriesSearch] = useState("All");

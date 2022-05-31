@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import "./CategoryHorizontal.css";
-import { Link } from "react-router-dom";
 import { data } from "../api/apiSlice";
 
 function CategoryHorizontal({ index }) {

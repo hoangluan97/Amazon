@@ -2,7 +2,6 @@ import React from "react";
 import "./Categories.css";
 import Category from "./Category";
 import Catergoryfourproduct from "./CategoryFourProducts";
-import CategoryClick from "./CategoryClick";
 import CategoryHorizontal from "./CategoryHorizontal";
 
 function Categories() {
