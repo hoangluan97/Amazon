@@ -44,7 +44,7 @@ function Home() {
             style={{ animationDelay: `${delaySlider + 12}s` }}
           />
         </div>
-        <button
+        {/* <button
           className="Background-button Button-left Home-Flexcolumn"
           onClick={handleClickLeftButton}
         >
@@ -55,7 +55,7 @@ function Home() {
           onClick={handleClickRightButton}
         >
           <i className="fa-solid fa-angles-right fa-2xl"></i>
-        </button>
+        </button> */}
       </div>
       <Categories />
     </div>

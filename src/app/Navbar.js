@@ -78,7 +78,7 @@ function Navbar() {
                 <button
                   className="header-search-button"
                   onClick={(e) => {
-                    e.preventDefault();
+                    // e.preventDefault();
                     dispatch(productsSearch({ searchInput }));
                     setSearchInput("");
                   }}
@@ -153,7 +153,7 @@ function Navbar() {
           </Link>
         </div>
       </div>
-      <div className="header-nav">
+      {/* <div className="header-nav">
         <div className="header-nav-all">
           <i className="header-sprite header-nav-bar"></i>
           <span>All</span>
@@ -165,7 +165,7 @@ function Navbar() {
           <a href="">Gift Cards</a>
           <a href="">Sell</a>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

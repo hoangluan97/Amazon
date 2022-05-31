@@ -53,6 +53,10 @@
     padding: 10px;
 }
 
+.CartProduct-product-unchecked {
+    opacity: 0.5;
+}
+
 .CartProduct-products-img {
     align-items: center;
     justify-content: center;

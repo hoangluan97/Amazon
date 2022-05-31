@@ -4,9 +4,12 @@ import { data } from "../api/apiSlice";
 const initialState = {
   products: data,
   param: 0,
+  starFilter: 0,
+  priceFilter: 0,
   cartQuantities: 0,
   searchCategory: 0,
   addedToCartProducts: [],
+  searchProducts: [],
 };
 
 const productsSlice = createSlice({
@@ -17,21 +20,35 @@ const productsSlice = createSlice({
       const { index } = action.payload;
       state.param = index;
       state.products[index].category_results = data[index].category_results;
+      state.searchProducts = [];
     },
     starFilter(state, action) {
       const { star, param } = action.payload;
-      const filter = data[param].category_results.filter((product) => {
-        return product.rating > star;
-      });
+      let filter = [];
+      if (state.searchProducts.length) {
+        filter = state.searchProducts.filter((product) => {
+          return product.rating > star;
+        });
+      } else {
+        filter = data[param].category_results.filter((product) => {
+          return product.rating > star;
+        });
+      }
       state.products[param].category_results = filter;
-      console.log(state.products.products);
     },
 
     priceFilter(state, action) {
       const { low, high, param } = action.payload;
-      const filter = data[param].category_results.filter((product) => {
-        return product.price.value >= low && product.price.value < high;
-      });
+      let filter = [];
+      if (state.searchProducts.length) {
+        filter = state.searchProducts.filter((product) => {
+          return product.price.value >= low && product.price.value < high;
+        });
+      } else {
+        filter = data[param].category_results.filter((product) => {
+          return product.price.value >= low && product.price.value < high;
+        });
+      }
       state.products[param].category_results = filter;
     },
     cartAdded(state, action) {
@@ -43,13 +60,12 @@ const productsSlice = createSlice({
     },
     productsSearch(state, action) {
       const { searchInput } = action.payload;
-      console.log(state.param);
       state.products[state.param].category_results.splice(
         0,
         state.products[state.param].category_results.length
       );
-      let searchProducts = [];
-      if (state.searchCategory === 0) {
+      state.searchProducts = [];
+      if (state.searchCategory == 0) {
         for (let i = 0; i < data.length; i++) {
           let categoryFilter = data[i].category_results.filter((product) => {
             // return product.title.includes(searchInput);
@@ -58,7 +74,7 @@ const productsSlice = createSlice({
               .includes(searchInput.toLowerCase());
           });
           if (categoryFilter.length) {
-            searchProducts = searchProducts.concat(categoryFilter);
+            state.searchProducts = state.searchProducts.concat(categoryFilter);
           }
         }
       } else {
@@ -70,11 +86,10 @@ const productsSlice = createSlice({
             .includes(searchInput.toLowerCase());
         });
         if (categoryFilter.length) {
-          searchProducts = searchProducts.concat(categoryFilter);
+          state.searchProducts = state.searchProducts.concat(categoryFilter);
         }
       }
-      console.log(searchProducts);
-      state.products[state.param].category_results = searchProducts;
+      state.products[state.param].category_results = state.searchProducts;
     },
     categorySearch(state, action) {
       const { index } = action.payload;
