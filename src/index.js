@@ -15,7 +15,7 @@ ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />}>
+          <Route path="/Amazon" element={<App />}>
             <Route index element={<Home />} />
             <Route path="Home" element={<Home />} />
             <Route path=":ProductPageid" element={<ProductPage />} />

@@ -24,7 +24,7 @@ function Testinng({ index }) {
         className="Home-Category-Footer"
         onClick={() => dispatch(productsLoad({ index }))}
       >
-        <Link to={`/${index}`}>Shop now</Link>
+        <Link to={`/Amazon/${index}`}>Shop now</Link>
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ function Navbar() {
   return (
     <div className="header">
       <div className="header-upper">
-        <Link to="/Home">
+        <Link to="/Amazon/Home">
           <div className="header-logo-wrap">
             <i className="header-sprite header-logo"></i>
           </div>
@@ -74,7 +74,7 @@ function Navbar() {
               />
             </div>
             <div className="header-search-submit">
-              <Link to={`/${param}`}>
+              <Link to={`/Amazon/${param}`}>
                 <button
                   className="header-search-button"
                   onClick={(e) => {
@@ -142,7 +142,10 @@ function Navbar() {
               </span>
             </div>
           </div>
-          <Link to="/Cart" className="header-bracket-container header-tool">
+          <Link
+            to="/Amazon/Cart"
+            className="header-bracket-container header-tool"
+          >
             <div className="header-counter">
               <span className="header-counter-number">{cartQuantities}</span>
               <span className="header-sprite header-bracket-icon"></span>
