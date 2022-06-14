@@ -35,7 +35,6 @@ function Categories() {
         price3="30"
         price4="40"
       /> */}
-      <CategoryHorizontal index="6" />
     </div>
   );
 }

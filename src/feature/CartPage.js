@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "./CartPage.css";
-import { selectAllCartProducts } from "./productsSlice";
+import {
+  selectAllCartProducts,
+  deleteProduct,
+  cartDeleted,
+} from "./productsSlice";
+import { useDispatch } from "react-redux";
 
 function CartPage() {
   const productsAdded = useSelector(selectAllCartProducts);
-
+  const dispatch = useDispatch();
   const initialList = [];
   for (let i = 0; i < productsAdded.length; i++) {
     initialList.push(i);
@@ -180,13 +185,18 @@ function CartPage() {
           <span className="CartProduct-products-price">
             {product.price.value} $
           </span>
-          {/* <span className="CartProduct-products-delivery">
-            {product.delivery.price.raw}
-          </span> */}
           <div className="CartProduct-products-quantity displayflexrow">
             <span>Quantity : </span>
             {quantityContent(index)}
           </div>
+          <span
+            onClick={() => {
+              dispatch(cartDeleted({ index }));
+              dispatch(deleteProduct({ product }));
+            }}
+          >
+            Delete item
+          </span>
         </div>
       </div>
     ));

@@ -1,9 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { data } from "../api/apiSlice";
-import { doc, updateDoc, arrayUnion, getDoc } from "firebase/firestore";
+import {
+  doc,
+  updateDoc,
+  arrayUnion,
+  getDoc,
+  deleteDoc,
+  arrayRemove,
+} from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import db from "../firebaseConfig";
-import { useDispatch } from "react-redux";
 
 const initialState = {
   products: data,
@@ -67,10 +73,23 @@ const productsSlice = createSlice({
     },
     cartAdded(state, action) {
       const { searchIndex } = action.payload;
-      state.cartQuantities += 1;
-      state.addedToCartProducts.push(
-        state.products[state.param].category_results[searchIndex]
-      );
+      if (
+        !state.addedToCartProducts.some(
+          (e) =>
+            e.title ===
+            state.products[state.param].category_results[searchIndex].title
+        )
+      ) {
+        state.cartQuantities += 1;
+        state.addedToCartProducts.push(
+          state.products[state.param].category_results[searchIndex]
+        );
+      }
+    },
+    cartDeleted(state, action) {
+      const { index } = action.payload;
+      state.addedToCartProducts.splice(index, 1);
+      state.cartQuantities -= 1;
     },
     productsSearch(state, action) {
       const { searchInput } = action.payload;
@@ -155,6 +174,23 @@ export const addCartProductsToFirestore = createAsyncThunk(
   }
 );
 
+export const deleteProduct = createAsyncThunk(
+  "deleteproduct/deleteCartProductsfromFirestore",
+  (cartProducts) => {
+    if (userId) {
+      updateDoc(doc(db, "users", userId), {
+        cartproducts: arrayRemove({
+          title: cartProducts.title,
+          image: cartProducts.image,
+          price: {
+            value: cartProducts.price.value,
+          },
+        }),
+      }).catch((error) => console.log(error.message));
+    }
+  }
+);
+
 export const fetchCartProductsfromFirestore = createAsyncThunk(
   "fetchcartproducts/fetchCartProductsfromFirestore",
   async () => {
@@ -194,6 +230,7 @@ export const {
   productsSearch,
   categorySearch,
   clearCartLogout,
+  cartDeleted,
 } = productsSlice.actions;
 
 export const selectAllProducts = (state) => state.products.products;

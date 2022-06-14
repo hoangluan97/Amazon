@@ -3,31 +3,31 @@
 }
 
 .Home {
-    min-width: 980px;
+    min-width: 1200px;
     /* overflow: hidden;
     overflow-y: scroll; */
-    width: 100vw;
-    height: fit-content;
+    width: 100%;
+    height: auto;
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
+    padding-bottom: 35px;
 }
 
 .Background-slider {
     /* z-index: -1; */
     height: 600px;
     overflow: hidden;
-    width: 100vw;
+    width: 100%;
     display: block;
         position: relative;
 }
 
 .Background-image {
     display: block;
-    width: 100vw;
-    overflow: hidden;
+    width: 100%;    overflow: hidden;
 }
 
 .Background-image img {

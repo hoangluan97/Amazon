@@ -11,7 +11,7 @@
     justify-items: center;
     justify-content: center;
     align-content: start;
-    padding: 0 10px 0;
+    padding: 0 10px 10px;
     min-width: 919px;
     background: linear-gradient(0deg, rgb(233, 243, 243) 80%, transparent 85% );
 }
