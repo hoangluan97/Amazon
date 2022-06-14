@@ -1,5 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { data } from "../api/apiSlice";
+import { doc, updateDoc, arrayUnion, getDoc } from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import db from "../firebaseConfig";
+import { useDispatch } from "react-redux";
 
 const initialState = {
   products: data,
@@ -12,6 +16,16 @@ const initialState = {
   searchProducts: [],
 };
 
+const auth = getAuth();
+let userId = "";
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    userId = auth.currentUser.uid;
+  } else {
+    userId = "";
+  }
+});
 const productsSlice = createSlice({
   name: "products",
   initialState,
@@ -95,8 +109,80 @@ const productsSlice = createSlice({
       const { index } = action.payload;
       state.searchCategory = index;
     },
+    clearCartLogout(state, action) {
+      state.addedToCartProducts = [];
+      state.cartQuantities = 0;
+    },
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchCartProductsfromFirestore.fulfilled, (state, action) => {
+        let concatProducts = state.addedToCartProducts.concat(action.payload);
+        let filtDuplicate = concatProducts.filter(
+          (product, index) =>
+            index ===
+            concatProducts.findIndex(
+              (element) => element.title === product.title
+            )
+        );
+
+        state.addedToCartProducts = filtDuplicate;
+        state.cartQuantities = state.addedToCartProducts.length;
+      })
+      .addCase(fetchCartProductsfromFirestore.rejected, (state, action) => {
+        console.log(action.error.message);
+      })
+      .addCase(addCartProductsToFirestore.rejected, (state, action) => {
+        console.log(action.error.message);
+      });
   },
 });
+
+export const addCartProductsToFirestore = createAsyncThunk(
+  "cartproducts/addCartProductsToFirestore",
+  (cartProducts) => {
+    if (userId) {
+      updateDoc(doc(db, "users", userId), {
+        cartproducts: arrayUnion({
+          title: cartProducts.title,
+          image: cartProducts.image,
+          price: {
+            value: cartProducts.price.value,
+          },
+        }),
+      }).catch((error) => console.log(error.message));
+    }
+  }
+);
+
+export const fetchCartProductsfromFirestore = createAsyncThunk(
+  "fetchcartproducts/fetchCartProductsfromFirestore",
+  async () => {
+    const docRef = doc(db, "users", userId);
+    const docSnap = await getDoc(docRef);
+    return docSnap.data().cartproducts;
+  }
+);
+
+export const updateCartProductstoFirestoreAfterLogin = createAsyncThunk(
+  "updateFirestore/updateCartProductstoFirestoreAfterLogin",
+  (cartProducts) => {
+    for (let i = 0; i < cartProducts.length; i++)
+      updateDoc(doc(db, "users", userId), {
+        cartproducts: arrayUnion({
+          title: cartProducts[i].title,
+          image: cartProducts[i].image,
+          price: {
+            value: cartProducts[i].price.value,
+          },
+        }),
+      })
+        .then(() => {
+          console.log(cartProducts);
+        })
+        .catch((error) => console.log(error.message));
+  }
+);
 
 export default productsSlice.reducer;
 
@@ -107,6 +193,9 @@ export const {
   cartAdded,
   productsSearch,
   categorySearch,
+  clearCartLogout,
 } = productsSlice.actions;
 
 export const selectAllProducts = (state) => state.products.products;
+export const selectAllCartProducts = (state) =>
+  state.products.addedToCartProducts;

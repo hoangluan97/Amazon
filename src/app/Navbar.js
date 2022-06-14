@@ -4,8 +4,14 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { data } from "../api/apiSlice";
 import { productsSearch, categorySearch } from "../feature/productsSlice";
+import { getAuth, signOut } from "firebase/auth";
+import { userLogout } from "../feature/LoginSlice";
+import { App } from "../firebaseConfig";
 
 function Navbar() {
+  const auth = getAuth();
+  const userName = useSelector((state) => state.login.userName);
+  const loginStatus = useSelector((state) => state.login.isLogin);
   const [categoriesSearch, setCategoriesSearch] = useState("All");
   const param = useSelector((state) => state.products.param);
   const dispatch = useDispatch();
@@ -20,6 +26,25 @@ function Navbar() {
       {department}
     </option>
   ));
+
+  const onClickSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        dispatch(userLogout());
+      })
+      .catch((error) => console.log(error.message));
+  };
+  const buttonSignInOut = () => {
+    if (loginStatus) {
+      return <button onClick={onClickSignOut}>Sign out</button>;
+    } else {
+      return (
+        <Link to={"/Login"}>
+          <button>Sign in</button>
+        </Link>
+      );
+    }
+  };
 
   return (
     <div className="header">
@@ -95,7 +120,7 @@ function Navbar() {
           <div className="header-tool header-language"></div>
           <div className="header-signin header-tool">
             <span className="header-signin-line1 header-line1">
-              Hello, Sign in
+              Hello, {userName}
             </span>
             <span className="header-signin-line2 header-line2">
               Account &amp; Lists
@@ -103,7 +128,7 @@ function Navbar() {
             </span>
             <div className="header-signin-dropdown header-flexcolumn">
               <div className="header-signin-top header-flexcolumn">
-                <button>Sign in</button>
+                {buttonSignInOut()}
                 <span>
                   New customer ? <a href="">Start here</a>
                 </span>
@@ -155,19 +180,6 @@ function Navbar() {
           </Link>
         </div>
       </div>
-      {/* <div className="header-nav">
-        <div className="header-nav-all">
-          <i className="header-sprite header-nav-bar"></i>
-          <span>All</span>
-        </div>
-        <div className="header-nav-link">
-          <a href="">Today's Deals</a>
-          <a href="">Customer Service</a>
-          <a href="">Registry</a>
-          <a href="">Gift Cards</a>
-          <a href="">Sell</a>
-        </div>
-      </div> */}
     </div>
   );
 }

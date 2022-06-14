@@ -5,6 +5,8 @@ import App from "./App";
 import Home from "./feature/Home";
 import ProductPage from "./feature/ProductPage";
 import CartPage from "./feature/CartPage";
+import LoginPage from "./feature/LoginPage";
+import SignupPage from "./feature/SignupPage";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Provider } from "react-redux";
 import store from "./app/store";
@@ -21,6 +23,8 @@ ReactDOM.render(
             <Route path=":ProductPageid" element={<ProductPage />} />
             <Route path="Cart" element={<CartPage />} />
           </Route>
+          <Route path="/Login" element={<LoginPage />}></Route>
+          <Route path="/Signup" element={<SignupPage />}></Route>
         </Routes>
       </BrowserRouter>
     </Provider>

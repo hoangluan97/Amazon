@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import "./FilterSide.css";
 import { Link } from "react-router-dom";
 import { starFilter, productsLoad, priceFilter } from "./productsSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { data } from "../api/apiSlice";
 

@@ -31,7 +31,7 @@ function Catergoryfourproduct({ index }) {
         <div className="Home-catergoryfourproduct-grid">{content}</div>
       </div>
       <div className="Home-catergoryfourproduct-footer" onClick={handleClick}>
-        <Link to={`/${index}`}>Shop now</Link>
+        <Link to={`/Amazon/${index}`}>Shop now</Link>
       </div>
     </div>
   );

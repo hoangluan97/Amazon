@@ -1,0 +1,108 @@
+.displayflex {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+}
+
+.Loginpage {
+    padding-top: 20px;
+    gap: 15px;
+    margin: auto;
+    width: fit-content;
+}
+
+.Loginpage-imgcontainer {
+    width: 130px;
+    height: 50px;
+    display: flex;
+}
+
+.Loginpage-img {
+    background: url(https://m.media-amazon.com/images/S/sash/mPGmT0r6IeTyIee.png);
+    width: 120px;
+    height: 50px;
+    background-position: 0px -127px;
+    background-size: 425px;
+}
+
+.Loginpage-signin {
+    align-items: flex-start !important;
+    border: solid 1px rgb(195, 188, 188);
+    border-radius: 3px;
+    padding: 28px 25px;
+    gap: 20px;
+}
+
+.Loginpage-signin span {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.Loginpage-form {
+    align-items: flex-start !important;
+    gap: 5px;
+    width: 300px;
+}
+
+.Loginpage-form label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.Loginpage-form input {
+    width: 100%;
+    height: 30px;
+}
+
+.Loginpage-form button {
+    width: 100%;
+    height: 34px;
+    margin-top: 15px;
+    background-image: linear-gradient(to top, rgb(238, 176, 62), rgb(245, 226, 190));
+    border: solid 0.5px rgb(152, 152, 106);
+    border-radius: 3px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.Loginpage-form button:hover {
+    background-image: linear-gradient(to top, rgb(240, 174, 51), rgb(240, 211, 157));}
+
+.Loginpage-form button:hover {
+    cursor: pointer;
+}
+
+.Loginpage-new span {
+    font-size: 12px;
+    flex-grow: 0;
+    width: fit-content;
+    margin: 0 5px;
+}
+
+.Loginpage-new {
+    flex-direction: row !important;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.Loginpage-new-line {
+    flex-grow: 3;
+    height: 1px;
+    background-color: rgb(134, 128, 128);
+    width: auto;
+}
+
+.Loginpage-signuplink {
+    height: 30px;
+    width: 100%;
+}
+
+.Loginpage-signupbutton {
+    height: 30px;
+    width: 100%;
+}
+
+.Loginpage-signupbutton:hover {
+    cursor: pointer;
+}

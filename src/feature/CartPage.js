@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "./CartPage.css";
+import { selectAllCartProducts } from "./productsSlice";
 
 function CartPage() {
-  const productsAdded = useSelector(
-    (state) => state.products.addedToCartProducts
-  );
+  const productsAdded = useSelector(selectAllCartProducts);
 
   const initialList = [];
   for (let i = 0; i < productsAdded.length; i++) {

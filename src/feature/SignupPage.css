@@ -1,0 +1,94 @@
+.displayflex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Signuppage {
+    padding-top: 20px;
+    gap: 15px;
+    margin: auto;
+    width: fit-content;
+}
+
+.Signuppage-imgcontainer {
+    width: 130px;
+    height: 50px;
+    display: flex;
+}
+
+.Signuppage-img {
+    background: url(https://m.media-amazon.com/images/S/sash/mPGmT0r6IeTyIee.png);
+    width: 120px;
+    height: 50px;
+    background-position: 0px -127px;
+    background-size: 425px;
+}
+
+.Signuppage-signin {
+    align-items: flex-start;
+    border: solid 1px rgb(195, 188, 188);
+    border-radius: 3px;
+    padding: 28px 25px;
+    gap: 20px;
+}
+
+.Signuppage-signin span {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.Signuppage-form {
+    align-items: flex-start;
+    gap: 5px;
+    width: 300px;
+}
+
+.Signuppage-form label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.Signuppage-form input {
+    width: 100%;
+    height: 30px;
+}
+
+.Signuppage-form button {
+    width: 100%;
+    height: 34px;
+    margin-top: 15px;
+    background-image: linear-gradient(to top, rgb(238, 176, 62), rgb(245, 226, 190));
+    border: solid 0.5px rgb(152, 152, 106);
+    border-radius: 3px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.Signuppage-form button:hover {
+    background-image: linear-gradient(to top, rgb(240, 174, 51), rgb(240, 211, 157));
+}
+
+.Signuppage-form button:hover {
+    cursor: pointer;
+}
+
+.Signuppage-login span {
+    font-size: 13px;
+    width: fit-content;
+    margin: 0 5px;
+}
+
+.Signuppage-login span a {
+    text-decoration: none;
+    color: rgb(70, 78, 245);
+}
+
+.Signuppage-login {
+    flex-direction: row;
+    width: 100%;
+    margin-top: 8px;
+}
+
+

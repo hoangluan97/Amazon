@@ -2,12 +2,20 @@ import React, { useCallback } from "react";
 import "./ProductCard.css";
 import { useDispatch } from "react-redux";
 import { cartAdded } from "./productsSlice";
+import { addCartProductsToFirestore } from "./productsSlice";
+import { selectAllCartProducts } from "./productsSlice";
+import { useSelector } from "react-redux";
 
 function ProductCard({ imgScr, productName, price, rate, searchIndex }) {
+  const cartProducts = useSelector(selectAllCartProducts);
   const dispatch = useDispatch();
-  const addToCart = useCallback((searchIndex) => {
-    return () => dispatch(cartAdded({ searchIndex }));
-  }, []);
+  const classname = "xamxam";
+  const addToCart = (searchIndex) => {
+    // updateDoc(doc(db, user));
+    dispatch(cartAdded({ searchIndex }));
+    dispatch(addCartProductsToFirestore(cartProducts[cartProducts.length - 1]));
+  };
+
   const starRating = () => {
     if (4.75 <= rate && rate <= 5) {
       return <i className="ProductCard-rating Fivestar"></i>;
@@ -32,12 +40,15 @@ function ProductCard({ imgScr, productName, price, rate, searchIndex }) {
     }
   };
   return (
-    <div className="ProductCard">
+    <div className={classname + " " + "ProductCard"}>
       <img className="ProductCard-image" src={imgScr} alt="" />
       <h2 className="ProductCard-name">{productName}</h2>
       {starRating()}
       <span className="ProductCard-price">{price}$</span>
-      <button className="ProductCard-button" onClick={addToCart(searchIndex)}>
+      <button
+        className="ProductCard-button"
+        onClick={() => addToCart(searchIndex)}
+      >
         Add to cart
       </button>
     </div>

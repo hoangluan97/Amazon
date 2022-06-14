@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import "./Category.css";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { selectAllProducts, productsLoad } from "./productsSlice";
 import { useParams } from "react-router-dom";
 import { data } from "../api/apiSlice";
