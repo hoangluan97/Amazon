@@ -89,22 +89,6 @@
     }
 }
 
-/* .Background-image> *:nth-child(1) {
-    animation-delay: 0s
-}
-
-.Background-image> *:nth-child(2) {
-    animation-delay: 4s
-}
-
-.Background-image> *:nth-child(3) {
-    animation-delay: 8s
-}
-
-.Background-image>*:nth-child(4) {
-    animation-delay: 12s
-} */
-
 .Home-Flexcolumn {
     display: flex;
     flex-direction: column;
