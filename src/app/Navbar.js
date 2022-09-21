@@ -133,29 +133,6 @@ function Navbar() {
                   New customer ? <a href="">Start here</a>
                 </span>
               </div>
-              <div className="header-signin-bot header-flexcolumn">
-                <div className="header-signin-bot-list header-flexcolumn">
-                  <span className="header-signin-bot-bold">Your List</span>
-                  <a href="">Create your list</a>
-                  <a href="">Find a list or Registry</a>
-                  <a href="">AmazonSmile Charity List</a>
-                </div>
-                <div className="header-signin-bot-account header-flexcolumn">
-                  <span className="header-signin-bot-bold">Your Account</span>
-                  <a href="">Account</a>
-                  <a href="">Order</a>
-                  <a href="">Recommendation</a>
-                  <a href="">Browsing History</a>
-                  <a href="">Watchlist</a>
-                  <a href="">Video Purchases and Rentals</a>
-                  <a href="">Kindle Unlimited</a>
-                  <a href="">Content &amp; Devices</a>
-                  <a href="">Subcribes and Save items</a>
-                  <a href="">Menberships &amp; Subcriptions</a>
-
-                  <a href="">Music library</a>
-                </div>
-              </div>
             </div>
           </div>
           <div className="header-return header-tool">
