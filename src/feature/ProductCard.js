@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import "./ProductCard.css";
 import { useDispatch } from "react-redux";
 import { cartAdded } from "./productsSlice";
@@ -11,7 +11,6 @@ function ProductCard({ imgScr, productName, price, rate, searchIndex }) {
   const dispatch = useDispatch();
   const classname = "xamxam";
   const addToCart = (searchIndex) => {
-    // updateDoc(doc(db, user));
     dispatch(cartAdded({ searchIndex }));
     dispatch(addCartProductsToFirestore(cartProducts[cartProducts.length - 1]));
   };

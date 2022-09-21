@@ -16,8 +16,6 @@ function CartPage() {
     initialList.push(i);
   }
 
-  const [isAllSelect, setIsAllSelect] = useState(true);
-
   const [productStyling, setProductStyling] = useState(
     new Array(productsAdded.length).fill("CartProduct-product displayflexrow")
   );
@@ -33,11 +31,10 @@ function CartPage() {
     new Array(productsAdded.length).fill(1)
   );
 
-  let subtotal = [];
+  let subtotalArray = [];
   for (let i = 0; i < productsAdded.length; i++) {
-    subtotal.push((productsAdded[i].price.value * 100) / 100);
+    subtotalArray.push((productsAdded[i].price.value * 100) / 100);
   }
-  const [subtotalArray, setSubotalArray] = useState(subtotal);
   let total = 0;
   for (let i = 0; i < productsAdded.length; i++) {
     total += subtotalArray[i] * quantityValue[i] * 100;

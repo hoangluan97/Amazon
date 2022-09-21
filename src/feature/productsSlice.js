@@ -5,7 +5,6 @@ import {
   updateDoc,
   arrayUnion,
   getDoc,
-  deleteDoc,
   arrayRemove,
 } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";

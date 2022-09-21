@@ -1,6 +1,7 @@
 # Amazon app
 
 Here is the live demo https://hoangluan97.github.io/Amazon/
+
 An Ecommerce Store application build with Reactjs, React-router-dom, Redux, Firebase
 
 ## Feature
@@ -25,9 +26,7 @@ An Ecommerce Store application build with Reactjs, React-router-dom, Redux, Fire
 
 ![Cartpage](./image/cartpage.PNG)
 
-![Loginpage](./image/loginpage.PNG)
-
-![Signuppage](./image/signuppage.PNG)
+![Loginpage](./image/loginpage.PNG) ![Signuppage](./image/signuppage.PNG)
 
 ## Set up
 
