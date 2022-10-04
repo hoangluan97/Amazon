@@ -1,123 +1,128 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .Home {
-    min-width: 1200px;
-    /* overflow: hidden;
+  /* overflow: hidden;
     overflow-y: scroll; */
-    width: 100%;
-    height: auto;
-    background-color: aliceblue;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    position: relative;
-    padding-bottom: 35px;
+  width: 100%;
+  height: auto;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  padding-bottom: 35px;
 }
 
 .Background-slider {
-    /* z-index: -1; */
-    height: 600px;
-    overflow: hidden;
-    width: 100%;
-    display: block;
-        position: relative;
+  /* z-index: -1; */
+  height: 600px;
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  position: relative;
 }
 
 .Background-image {
-    display: block;
-    width: 100%;    overflow: hidden;
+  display: block;
+  width: 100%;
+  overflow: hidden;
 }
 
 .Background-image img {
-    width: 100%;
-    z-index: 0;
-    max-width: none;
-    height: auto;
-    object-fit: cover;    
-    position: absolute;
-    right: 100%;
-    top: 0px;
-    animation: 16s autoplay2 infinite ease-in-out;
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+  width: 100%;
+  z-index: 0;
+  max-width: none;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  right: 100%;
+  top: 0px;
+  animation: 16s autoplay2 infinite ease-in-out;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
 .firstImg {
-    right:0%;
-    animation: 16s autoplay1 0s 1 ease-in-out, 
+  right: 0%;
+  animation: 16s autoplay1 0s 1 ease-in-out,
     16s autoplay2 16s infinite ease-in-out;
 }
 
 @keyframes autoplay1 {
-    0% {
-        right: 0%
-    }
+  0% {
+    right: 0%;
+  }
 
-    25% {
-        right: 0%
-    }
+  25% {
+    right: 0%;
+  }
 
-    29% {
-        right: -100%
-    }
+  29% {
+    right: -100%;
+  }
 
-    100% {
-        right: -100%
-    }
+  100% {
+    right: -100%;
+  }
 }
 
 @keyframes autoplay2 {
-    0% {
-        right: 100%
-    }
+  0% {
+    right: 100%;
+  }
 
-    4% {
-        right: 0%
-    }
+  4% {
+    right: 0%;
+  }
 
-    25% {
-        right: 0%
-    }
+  25% {
+    right: 0%;
+  }
 
-    29% {
-        right: -100%
-    }
+  29% {
+    right: -100%;
+  }
 
-    100% {
-        right: -100%
-    }
+  100% {
+    right: -100%;
+  }
 }
 
 .Home-Flexcolumn {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Background-button {
-    display: flex;
-    width: 80px;
-    height: 250px;
-    position: absolute;
-    top: 2px;    
-    background-color: transparent;
+  display: flex;
+  width: 80px;
+  height: 250px;
+  position: absolute;
+  top: 2px;
+  background-color: transparent;
 }
 
 .Background-button:active {
-    cursor: pointer;
-    border-style: double;
-    border: solid 3px white;
-    outline: solid 3px green;
-    border-radius: 3px;
+  cursor: pointer;
+  border-style: double;
+  border: solid 3px white;
+  outline: solid 3px green;
+  border-radius: 3px;
 }
 
 .Button-left {
-    left: 2px;
+  left: 2px;
 }
 
 .Button-right {
-    right: 2px;
+  right: 2px;
 }
 
+@media only screen and (max-width: 600px) {
+  .Home {
+    width: 100vw !important;
+  }
+}

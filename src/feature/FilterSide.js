@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef } from "react";
 import "./FilterSide.css";
 import { Link } from "react-router-dom";
 import { starFilter, productsLoad, priceFilter } from "./productsSlice";
@@ -6,11 +6,11 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { data } from "../api/apiSlice";
 
-function FilterSide() {
+function FilterSide({ showNav }) {
   const param = useParams().ProductPageid;
   const dispatch = useDispatch();
   const departments = [];
-
+  const ref = useRef(null);
   for (let i = 0; i < data.length; i++) {
     departments.push(data[i].category_results[0].categories[0].name);
   }
@@ -33,7 +33,11 @@ function FilterSide() {
   }, []);
 
   return (
-    <div className="FilterSide Displayflex">
+    <div
+      ref={ref}
+      style={{ display: showNav[0], zIndex: showNav[1] }}
+      className="FilterSide Displayflex"
+    >
       <div className="FilterSide-department Displayflex">
         <h2>Department</h2>
         <ul>{content}</ul>

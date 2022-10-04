@@ -126,7 +126,7 @@ function Navbar() {
               Account &amp; Lists
               <span className="header-signin-dot header-dot"></span>
             </span>
-            <div className="header-signin-dropdown header-flexcolumn">
+            <div className="header-flexcolumn header-signin-dropdown ">
               <div className="header-signin-top header-flexcolumn">
                 {buttonSignInOut()}
                 <span>

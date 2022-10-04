@@ -1,82 +1,88 @@
 .Displayflex {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .FilterSide {
-    width: 100%;
-    font-size: 14px;
-    line-height: 1.4;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 .FilterSide h2 {
-    font-size: 16px;
-    margin-bottom: 5px;
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .FilterSide-ratesorting-sprite {
-    background: url(https://m.media-amazon.com/images/S/sash/3-fm1Jbg4IHlyhq.png);
-    width: 99px;
-    height: 20px;
-    /* border: solid 1px red; */
-    /* background-position: 0 -3px; */
+  background: url(https://m.media-amazon.com/images/S/sash/3-fm1Jbg4IHlyhq.png);
+  width: 99px;
+  height: 20px;
+  /* border: solid 1px red; */
+  /* background-position: 0 -3px; */
 }
 
 .FilterSide-ratesorting-star {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2px;
 }
 
 .FilterSide-ratesorting-star:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .Fourstar {
-    background-position: 0 -86px;
+  background-position: 0 -86px;
 }
 
 .Threestar {
-    background-position: -291px -182px;
+  background-position: -291px -182px;
 }
 
 .Twostar {
-    background-position: -97px -135px;
+  background-position: -97px -135px;
 }
 
 .Onestar {
-    background-position: -388px -230px;
+  background-position: -388px -230px;
 }
 
 .FilterSide-department ul {
-    list-style-type: none;
-    margin: 0 0 10px 5px;
-    padding: 0;
+  list-style-type: none;
+  margin: 0 0 10px 5px;
+  padding: 0;
 }
 
 .FilterSide-department ul li {
-    margin-bottom: 6px;
+  margin-bottom: 6px;
 }
 
 .FilterSide-department ul li a {
-        font-size: 13px;
+  font-size: 13px;
 }
 
 .FilterSide-department ul li:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .FilterSile-pricesorting span {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .FilterSile-pricesorting span:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .FilterSide-department a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
+}
+
+@media only screen and (max-width: 600px) {
+  .FilterSide {
+    display: none;
+  }
 }

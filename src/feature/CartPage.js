@@ -223,7 +223,7 @@ function CartPage() {
   };
 
   return (
-    <div className="CartProduct displayflexrow">
+    <div className="CartProduct">
       <div className="CartProduct-productsContainer displayflexcolumn">
         <div className="CartProduct-header displayflexcolumn">
           <h3>Shopping Cart</h3>
