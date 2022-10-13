@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./CartPage.css";
 import {
@@ -30,6 +30,11 @@ function CartPage() {
   const [quantityValue, setQuantityValue] = useState(
     new Array(productsAdded.length).fill(1)
   );
+
+  useEffect(() => {
+    console.log(productStyling);
+    console.log(isChecked);
+  }, [productsAdded]);
 
   let subtotalArray = [];
   for (let i = 0; i < productsAdded.length; i++) {
@@ -190,6 +195,16 @@ function CartPage() {
             onClick={() => {
               dispatch(cartDeleted({ index }));
               dispatch(deleteProduct({ product }));
+              setIsChecked((prev) => {
+                let result = prev.slice();
+                result.splice(index, 1);
+                return result;
+              });
+              setProductStyling((prev) => {
+                let result = prev.slice();
+                result.splice(index, 1);
+                return result;
+              });
             }}
           >
             Delete item

@@ -9,9 +9,6 @@ import { data } from "../api/apiSlice";
 function Testinng({ index }) {
   const param = useParams().ProductPageid;
   const dispatch = useDispatch();
-  // const handleClick = useCallback((param) => {
-  //   return () => dispatch(productsLoad({ param }));
-  // }, []);
   return (
     <div className="Home-Category">
       <div className="Home-Category-Header">

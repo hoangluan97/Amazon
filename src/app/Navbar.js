@@ -6,7 +6,6 @@ import { data } from "../api/apiSlice";
 import { productsSearch, categorySearch } from "../feature/productsSlice";
 import { getAuth, signOut } from "firebase/auth";
 import { userLogout } from "../feature/LoginSlice";
-import { App } from "../firebaseConfig";
 
 function Navbar() {
   const auth = getAuth();
@@ -49,7 +48,7 @@ function Navbar() {
   return (
     <div className="header">
       <div className="header-upper">
-        <Link to="/Amazon/Home">
+        <Link to="/Amazon">
           <div className="header-logo-wrap">
             <i className="header-sprite header-logo"></i>
           </div>

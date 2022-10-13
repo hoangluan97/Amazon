@@ -18,7 +18,6 @@ function ProductPage() {
       key={nanoid()}
       imgScr={product.image}
       productName={product.title}
-      // price={product.price.value}
       price={product.price.value}
       rate={product.rating}
       searchIndex={index}

@@ -100,7 +100,6 @@ const productsSlice = createSlice({
       if (state.searchCategory == 0) {
         for (let i = 0; i < data.length; i++) {
           let categoryFilter = data[i].category_results.filter((product) => {
-            // return product.title.includes(searchInput);
             return product.title
               .toLowerCase()
               .includes(searchInput.toLowerCase());
